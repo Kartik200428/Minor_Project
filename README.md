@@ -84,7 +84,7 @@ This project implements an intelligent email analysis system that combines:
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/Kartik200428/Minor_Project.git
 cd Agent-AI-System
 ```
 
@@ -362,4 +362,5 @@ The Streamlit UI includes a comprehensive evaluation dashboard with:
 ---
 
 **Note**: This system is designed for research and educational purposes. For production use, consider additional security hardening, rate limiting, authentication, and monitoring.
+
 
