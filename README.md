@@ -347,20 +347,7 @@ The Streamlit UI includes a comprehensive evaluation dashboard with:
 - Run `training/prepare_dataset.py` to create `data/processed/combined.jsonl`
 - Ensure raw datasets exist in `data/raw/`
 
-## 📝 License
+Author -- Kartik Singh
 
-[Specify your license here]
-
-## 🤝 Contributing
-
-[Add contribution guidelines if applicable]
-
-## 📧 Contact
-
-[Add contact information if desired]
-
----
-
-**Note**: This system is designed for research and educational purposes. For production use, consider additional security hardening, rate limiting, authentication, and monitoring.
 
 
