@@ -164,34 +164,35 @@ python test_graph.py
 Agent-AI-System/
 ├── backend/
 │   ├── api/
-│   │   └── main.py              # FastAPI application and endpoints
+│   │   └── main.py            
 │   ├── core/
-│   │   ├── config.py            # Global configuration
-│   │   ├── model_loader.py      # ML model loading and inference
-│   │   ├── llm_manager.py       # Ollama LLM integration
-│   │   ├── ti_manager.py        # Threat intelligence feeds
-│   │   ├── email_utils.py       # Email feature extraction
-│   │   ├── eval_utils.py        # Offline evaluation utilities
-│   │   ├── dataset_utils.py     # Dataset analysis tools
-│   │   └── robustness_utils.py   # Adversarial testing
+│   │   ├── config.py           
+│   │   ├── model_loader.py      
+│   │   ├── llm_manager.py      
+│   │   ├── ti_manager.py        
+│   │   ├── email_utils.py       
+│   │   ├── eval_utils.py       
+│   │   ├── dataset_utils.py     
+│   │   └── robustness_utils.py   
 │   ├── graph/
-│   │   ├── graph_builder.py     # LangGraph construction
-│   │   ├── nodes.py             # Pipeline node implementations
-│   │   └── state.py             # State type definitions
+│   │   ├── graph_builder.py     
+│   │   ├── nodes.py             
+│   │   └── state.py             
 │   └── models/
-│       └── email_classifier.joblib  # Trained phishing classifier
+│       └── email_classifier.joblib 
 ├── frontend/
-│   └── app.py                   # Streamlit UI
+│   └── app.py                  
 ├── training/
-│   ├── prepare_dataset.py       # Dataset preprocessing
-│   └── train_classifier.py      # Model training script
+│   ├── prepare_dataset.py      
+│   └── train_classifier.py
+|   └── spam_classifier.py       
 ├── data/
-│   ├── raw/                     # Raw datasets (CSV files)
-│   ├── processed/               # Processed JSONL datasets
-│   └── ti/                      # Threat intelligence cache
-├── test_graph.py                # End-to-end pipeline test
-├── requirements.txt             # Python dependencies
-└── README.md                    # This file
+│   ├── raw/                     
+│   ├── processed/               
+│   └── ti/                      
+├── test_graph.py                
+├── requirements.txt             
+└── README.md                   
 ```
 
 ## 🔌 API Endpoints
@@ -347,7 +348,9 @@ The Streamlit UI includes a comprehensive evaluation dashboard with:
 - Run `training/prepare_dataset.py` to create `data/processed/combined.jsonl`
 - Ensure raw datasets exist in `data/raw/`
 
-Author -- Kartik Singh
+
+##Author -- Kartik Singh
+
 
 
 
