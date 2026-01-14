@@ -293,9 +293,9 @@ heuristic_config.ti_weight = 0.2
  **The are present in screenshots folder in the Github repository**
 
 ## 📝 Author
-
-** Code Atoms **
+ **Code Atoms**
 ---
+
 
 
 
