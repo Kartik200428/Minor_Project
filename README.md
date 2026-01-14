@@ -33,16 +33,6 @@ This project implements an intelligent email analysis system that combines:
 | **Nazario Phishing Dataset (`Nazario.csv`)** | 1,565 | 7 | Binary (Phishing / Legitimate) | Phishing-focused dataset with sender, receiver, email content, URLs, and temporal metadata. |
 | **CEAS 2008 Dataset (`CEAS_08.csv`)** | 39,154 | 7 | Binary (Spam / Ham) | Large-scale email dataset from the CEAS 2008 challenge, including headers, body text, and embedded URLs. |
 
-### Label Distribution
-- **Spam / Ham classification**
-- **Phishing / Legitimate email detection**
-- Supports both **content-based** and **metadata-aware** learning approaches.
-
-### Use Cases
-- Spam detection
-- Phishing email identification
-- Multi-agent email analysis
-- NLP-based threat classification
 
 ## 🏗️ Architecture
 
@@ -309,6 +299,7 @@ heuristic_config.ti_weight = 0.2
 
 Kartik Singh
 ---
+
 
 
 
