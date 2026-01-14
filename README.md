@@ -77,7 +77,7 @@ This project implements an intelligent email analysis system that combines:
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/Kartik200428/Minor_Project.git
 cd Agent-AI-System
 ```
 
@@ -288,6 +288,7 @@ heuristic_config.ti_weight = 0.2
 
 Kartik Singh
 ---
+
 
 
 
