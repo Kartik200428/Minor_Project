@@ -290,12 +290,13 @@ heuristic_config.ti_weight = 0.2
 - **CORS**: Currently configured for local development (adjust for production)
 
 ## 📊✨Results 
-### The are present in screenshots folder in the Github Repo
+ **The are present in screenshots folder in the Github repository**
 
 ## 📝 Author
 
-Kartik Singh
+** Code Atoms **
 ---
+
 
 
 
