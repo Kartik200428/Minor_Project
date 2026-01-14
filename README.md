@@ -162,10 +162,6 @@ The UI will open in your browser at `http://localhost:8501`
 python test_graph.py
 ```
 
-## 📊✨Results 
-### The are present in screenshots folder in the Github Repo
-
-
 ## 📁 Project Structure
 
 ```
@@ -293,12 +289,14 @@ heuristic_config.ti_weight = 0.2
 - **Model Artifacts**: Trained models are stored locally and not exposed via API
 - **CORS**: Currently configured for local development (adjust for production)
 
-
+## 📊✨Results 
+### The are present in screenshots folder in the Github Repo
 
 ## 📝 Author
 
 Kartik Singh
 ---
+
 
 
 
