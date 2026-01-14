@@ -23,7 +23,7 @@ This project implements an intelligent email analysis system that combines:
 - **SOC Recommendations**: Security operations center recommendations for analysts
 - **Forensic Notes**: Detailed investigation logs for security teams
 
-## Datasets Used 📂
+## 📂 Datasets Used 
 
 | Dataset | Samples | Features | Label Type | Description |
 |-------|---------|----------|------------|-------------|
@@ -172,7 +172,8 @@ The UI will open in your browser at `http://localhost:8501`
 python test_graph.py
 ```
 
-## Results 📊✨
+## 📊✨Results 
+### The are present in screenshots folder in the Github Repo
 
 
 ## 📁 Project Structure
@@ -308,6 +309,7 @@ heuristic_config.ti_weight = 0.2
 
 Kartik Singh
 ---
+
 
 
 
