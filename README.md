@@ -5,7 +5,7 @@ A comprehensive AI-powered system for analyzing and classifying emails as spam o
 ## 🎯 Overview
 
 This project implements an intelligent email analysis system that combines:
-- **Machine Learning Classification**: TF-IDF + Logistic Regression for spam/phishing detection
+- **Machine Learning Classification**: TF-IDF + Logistic Regression for phishing detection and SVC model for Spam.
 - **Multi-Agent LangGraph Pipeline**: Orchestrates analysis through specialized nodes (ingest, filter, threat intel, explainability, response, SOC, forensics)
 - **Threat Intelligence Integration**: Real-time URL reputation checks via OpenPhish and URLHaus
 - **Local LLM Integration**: Uses Ollama for explainability, user guidance, and safe reply generation
@@ -152,6 +152,9 @@ The UI will open in your browser at `http://localhost:8501`
 python test_graph.py
 ```
 
+## Results 📊✨
+
+
 ## 📁 Project Structure
 
 ```
@@ -285,6 +288,7 @@ heuristic_config.ti_weight = 0.2
 
 Kartik Singh
 ---
+
 
 
 
