@@ -23,6 +23,26 @@ This project implements an intelligent email analysis system that combines:
 - **SOC Recommendations**: Security operations center recommendations for analysts
 - **Forensic Notes**: Detailed investigation logs for security teams
 
+## Datasets Used 📂
+
+| Dataset | Samples | Features | Label Type | Description |
+|-------|---------|----------|------------|-------------|
+| **Spam SMS Dataset (`spam.csv`)** | 5,572 | 5 | Binary (Spam / Ham) | Classic SMS spam dataset containing raw message text and labels. Used for baseline spam classification. |
+| **Cleaned Spam Dataset (`spam_dataset_cleaned.csv`)** | 5,796 | 2 | Binary (Spam / Ham) | Preprocessed version of spam data with cleaned and normalized text suitable for NLP pipelines. |
+| **Enron Email Dataset (`Enron.csv`)** | 29,767 | 3 | Binary (Spam / Ham) | Real-world corporate email dataset containing email subjects, bodies, and spam labels. |
+| **Nazario Phishing Dataset (`Nazario.csv`)** | 1,565 | 7 | Binary (Phishing / Legitimate) | Phishing-focused dataset with sender, receiver, email content, URLs, and temporal metadata. |
+| **CEAS 2008 Dataset (`CEAS_08.csv`)** | 39,154 | 7 | Binary (Spam / Ham) | Large-scale email dataset from the CEAS 2008 challenge, including headers, body text, and embedded URLs. |
+
+### Label Distribution
+- **Spam / Ham classification**
+- **Phishing / Legitimate email detection**
+- Supports both **content-based** and **metadata-aware** learning approaches.
+
+### Use Cases
+- Spam detection
+- Phishing email identification
+- Multi-agent email analysis
+- NLP-based threat classification
 
 ## 🏗️ Architecture
 
@@ -288,6 +308,7 @@ heuristic_config.ti_weight = 0.2
 
 Kartik Singh
 ---
+
 
 
 
