@@ -10,7 +10,6 @@ This project implements an intelligent email analysis system that combines:
 - **Threat Intelligence Integration**: Real-time URL reputation checks via OpenPhish and URLHaus
 - **Local LLM Integration**: Uses Ollama for explainability, user guidance, and safe reply generation
 - **Heuristic Scoring**: Rule-based features complement ML predictions
-- **Evaluation Dashboard**: Comprehensive offline evaluation with ROC/PR curves, threshold analysis, and robustness testing
 
 ## ✨ Features
 
@@ -24,12 +23,6 @@ This project implements an intelligent email analysis system that combines:
 - **SOC Recommendations**: Security operations center recommendations for analysts
 - **Forensic Notes**: Detailed investigation logs for security teams
 
-### Evaluation & Analytics
-- **Offline Evaluation**: Comprehensive metrics on processed datasets
-- **ROC & PR Curves**: Performance visualization for classifier quality assessment
-- **Threshold Analysis**: Explore precision/recall trade-offs across different thresholds
-- **Dataset Insights**: Label distribution, feature statistics, and token importance analysis
-- **Robustness Testing**: Adversarial mutation generation and cross-model comparison
 
 ## 🏗️ Architecture
 
@@ -47,8 +40,8 @@ This project implements an intelligent email analysis system that combines:
     ┌────┴────┐
     │         │
 ┌───▼───┐ ┌──▼──────────┐
-│LangGraph│ │ ML Models  │
-│Pipeline │ │ (Joblib)   │
+│LangGraph│ │ ML Models       │
+│Pipeline │ │                 │
 └───┬───┘ └─────────────┘
     │
 ┌───▼────────────────────┐
@@ -84,7 +77,7 @@ This project implements an intelligent email analysis system that combines:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/Kartik200428/Minor_Project.git
+git clone <repository-url>
 cd Agent-AI-System
 ```
 
@@ -128,6 +121,7 @@ If you want to train your own models:
 cd training
 python prepare_dataset.py  # Combine raw datasets
 python train_classifier.py  # Train the phishing classifier
+Python Spam_classifier.py  # Train the spam classifier
 ```
 
 ## 🎮 Usage
@@ -164,35 +158,34 @@ python test_graph.py
 Agent-AI-System/
 ├── backend/
 │   ├── api/
-│   │   └── main.py            
+│   │   └── main.py              # FastAPI application and endpoints
 │   ├── core/
-│   │   ├── config.py           
-│   │   ├── model_loader.py      
-│   │   ├── llm_manager.py      
-│   │   ├── ti_manager.py        
-│   │   ├── email_utils.py       
-│   │   ├── eval_utils.py       
-│   │   ├── dataset_utils.py     
-│   │   └── robustness_utils.py   
+│   │   ├── config.py            # Global configuration
+│   │   ├── model_loader.py      # ML model loading and inference
+│   │   ├── llm_manager.py       # Ollama LLM integration
+│   │   ├── ti_manager.py        # Threat intelligence feeds
+│   │   ├── email_utils.py       # Email feature extraction
+│   │   ├── eval_utils.py        # Offline evaluation utilities
+│   │   ├── dataset_utils.py     # Dataset analysis tools
+│   │   └── robustness_utils.py   # Adversarial testing
 │   ├── graph/
-│   │   ├── graph_builder.py     
-│   │   ├── nodes.py             
-│   │   └── state.py             
+│   │   ├── graph_builder.py     # LangGraph construction
+│   │   ├── nodes.py             # Pipeline node implementations
+│   │   └── state.py             # State type definitions
 │   └── models/
-│       └── email_classifier.joblib 
+│       └── email_classifier.joblib  # Trained phishing classifier
 ├── frontend/
-│   └── app.py                  
+│   └── app.py                   # Streamlit UI
 ├── training/
-│   ├── prepare_dataset.py      
-│   └── train_classifier.py
-|   └── spam_classifier.py       
+│   ├── prepare_dataset.py       # Dataset preprocessing
+│   └── train_classifier.py      # Model training script
 ├── data/
-│   ├── raw/                     
-│   ├── processed/               
-│   └── ti/                      
-├── test_graph.py                
-├── requirements.txt             
-└── README.md                   
+│   ├── raw/                     # Raw datasets (CSV files)
+│   ├── processed/               # Processed JSONL datasets
+│   └── ti/                      # Threat intelligence cache
+├── test_graph.py                # End-to-end pipeline test
+├── requirements.txt             # Python dependencies
+└── README.md                    # This file
 ```
 
 ## 🔌 API Endpoints
@@ -205,20 +198,6 @@ Agent-AI-System/
 - `POST /analyze_email` - Analyze a single email through the full pipeline
 - `POST /classify_spam` - Classify email as spam/ham using SVC model
 
-### Evaluation
-- `POST /eval_summary` - Run offline evaluation on processed dataset
-- `POST /threshold_sweep` - Analyze performance across thresholds
-- `POST /roc_curve` - Generate ROC curve data
-- `POST /pr_curve` - Generate Precision-Recall curve data
-- `POST /confusion_at_threshold` - Confusion matrix at specific threshold
-
-### Dataset Insights
-- `POST /dataset_summary` - High-level dataset statistics
-- `POST /dataset_features` - Feature-level statistics and token analysis
-
-### Robustness Testing
-- `POST /adversarial_mutations` - Generate adversarial email variants
-- `POST /cross_model_compare` - Compare outputs across different LLM models
 
 ### Example API Request
 
@@ -240,33 +219,12 @@ print(f"Risk Score: {result['risk_score']}")
 print(f"Explanation: {result['explanation']}")
 ```
 
-## 🧪 Training
-
-### Training the Phishing Classifier
-
-1. **Prepare Dataset**:
-   ```bash
-   cd training
-   python prepare_dataset.py
-   ```
-   This combines raw CSV files from `data/raw/` into `data/processed/combined.jsonl`
-
-2. **Train Model**:
-   ```bash
-   python train_classifier.py
-   ```
-   This will:
-   - Load the combined dataset
-   - Train a TF-IDF + Logistic Regression classifier
-   - Evaluate on a held-out test set
-   - Save the model to `backend/models/email_classifier.joblib`
-
 ### Model Architecture
 
 - **Vectorizer**: TF-IDF with max_features=60000, ngram_range=(1,2)
 - **Classifier**: Logistic Regression with balanced class weights
 - **Features**: Combined subject + body text
-- **Labels**: `phishing` or `benign`
+- **Labels**: `phishing` or `benign` 'SPAM' or 'HAM'
 
 ## ⚙️ Configuration
 
@@ -274,7 +232,7 @@ Configuration is centralized in `backend/core/config.py`:
 
 - **LLM Models**: Available models and default selection
 - **Heuristic Weights**: ML, heuristic, and TI score blending
-- **Thresholds**: Phishing detection and high-risk thresholds
+- **Thresholds**: Spam and Phishing detection and high-risk thresholds
 - **Paths**: Data directories, model paths, TI cache locations
 - **Threat Intelligence**: OpenPhish and URLHaus feed URLs
 
@@ -313,17 +271,6 @@ heuristic_config.ti_weight = 0.2
 ### Utilities
 - **tldextract**: URL parsing and domain extraction
 - **requests**: HTTP client for TI feeds
-- **matplotlib**: Visualization for evaluation dashboard
-
-## 📊 Evaluation Dashboard
-
-The Streamlit UI includes a comprehensive evaluation dashboard with:
-
-1. **Model Evaluation**: Classification metrics, confusion matrices
-2. **Threshold Analysis**: Precision/recall trade-offs across thresholds
-3. **Performance Curves**: ROC and Precision-Recall curves
-4. **Dataset Insights**: Label distribution, feature statistics, token importance
-5. **Robustness Testing**: Adversarial mutations and cross-model comparisons
 
 ## 🔒 Security Considerations
 
@@ -332,25 +279,12 @@ The Streamlit UI includes a comprehensive evaluation dashboard with:
 - **Model Artifacts**: Trained models are stored locally and not exposed via API
 - **CORS**: Currently configured for local development (adjust for production)
 
-## 🐛 Troubleshooting
-
-### Ollama Connection Issues
-- Ensure Ollama is running: `ollama serve`
-- Check Ollama base URL in `backend/core/config.py`
-- Verify models are pulled: `ollama list`
-
-### Model Loading Errors
-- Ensure `backend/models/email_classifier.joblib` exists
-- Run training script if model is missing
-- Check file paths in `backend/core/config.py`
-
-### Dataset Not Found
-- Run `training/prepare_dataset.py` to create `data/processed/combined.jsonl`
-- Ensure raw datasets exist in `data/raw/`
 
 
-##Author -- Kartik Singh
+## 📝 Author
 
+Kartik Singh
+---
 
 
 
